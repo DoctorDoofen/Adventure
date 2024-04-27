@@ -55,17 +55,23 @@ class Player {
     if (item instanceof Food) {
       console.log(`You eat the ${itemName}.\nIt slaps`);
       this.items.splice(this.items.indexOf(item), 1)
-    } else if (!(itemName instanceof Food)) {
+    }
+    if (!(itemName instanceof Food)) {
       console.log(`${itemName} is not edible dumbass`)
     }
+
   }
 
   getItemByName(name) {
     let validItem = this.items.filter((item) => item.name === name)
-    return validItem[0]
+    if (validItem.length > 0) {
+      return validItem[0]
+    }
+    else {
+      console.log(`${name} is not in your inventory\nCry about it`)
+    }
   }
 }
-
 module.exports = {
   Player
 };

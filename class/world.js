@@ -39,10 +39,14 @@ class World {
     // A food item should be instantiated as an instance of the `Food` class
     for (let i = 0; i < itemList.length; i++) {
       let itemData = itemList[i];
+      let room = this.rooms[itemData.room]
       if (itemData.isFood) {
-        let newFood = new Food(itemData.name)
+        let newFood = new Food(itemData.name, itemData.description)
+        room.items.push(newFood)
+      } else {
+        let newItem = new Item(itemData.name, itemData.description);
+        room.items.push(newItem)
       }
-      let newItem = new Item(itemData.name, itemData.description);
     }
   }
 }
