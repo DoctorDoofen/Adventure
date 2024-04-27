@@ -33,29 +33,36 @@ class Player {
   }
 
   takeItem(itemName) {
-    this.items.push(Item.itemName)
-    Room.items.splice(Room.items.indexOf(itemName), 1)
+    let item = this.currentRoom.getItemByName(itemName)
+    if (item) {
+      this.currentRoom.items.splice(this.currentRoom.items.indexOf(itemName), 1)
+      this.items.push(item)
+    }
+    else console.log('This bitch empty\nkeep looking columbus')
   }
 
   dropItem(itemName) {
-    Room.items.push(itemNAme);
-    this.items.splice(this.items.indexOf(itemName), 1)
+    let item = this.getItemByName(itemName)
+    if (item) {
+      console.log('here have a present')
+      this.items.splice(this.items.indexOf(item), 1)
+      this.currentRoom.items.push(item)
+    }
   }
 
   eatItem(itemName) {
-    if (itemName === 'sandwich') {
-      console.log(`You eat the ${itemName}. \n It slaps`);
-      this.items.splice(this.items.indexOf(itemName), 1)
+    let item = this.getItemByName(itemName) || null;
+    if (item instanceof Food) {
+      console.log(`You eat the ${itemName}.\nIt slaps`);
+      this.items.splice(this.items.indexOf(item), 1)
     } else if (!(itemName instanceof Food)) {
       console.log(`${itemName} is not edible dumbass`)
     }
   }
 
   getItemByName(name) {
-    if (this.items.includes(name)) {
-      return Item.description
-    } return 'Item not in inventory, broke-ass'
-
+    let validItem = this.items.filter((item) => item.name === name)
+    return validItem[0]
   }
 }
 

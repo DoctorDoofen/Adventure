@@ -46,10 +46,10 @@ class Room {
   }
 
   getItemByName(name) {
-    if (room.items.length > 0) {
-      return Item[name]
-    }
+    let validItem = this.items.filter((item) => item.name === name)
+    return validItem[0]
   }
+
 }
 
 module.exports = {
