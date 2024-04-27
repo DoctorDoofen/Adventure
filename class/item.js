@@ -4,7 +4,6 @@ class Item {
     this.description = description;
   }
 
-  // Your code here
 }
 
 module.exports = {

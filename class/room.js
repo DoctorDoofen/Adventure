@@ -1,5 +1,5 @@
 const { rooms } = require('../data/world-data');
-const {Item} = require('./item');
+const { Item } = require('./item');
 const { Player } = require('./player');
 
 class Room {
@@ -47,7 +47,7 @@ class Room {
 
   getItemByName(name) {
     if (room.items.length > 0) {
-      return room.items.split(' ')
+      return Item[name]
     }
   }
 }

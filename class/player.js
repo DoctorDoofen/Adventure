@@ -26,14 +26,14 @@ class Player {
       console.log(`${this.name} is not carrying anything.`);
     } else {
       console.log(`${this.name} is carrying:`);
-      for (let i = 0 ; i < this.items.length ; i++) {
-          console.log(`  ${this.items[i].name}`);
+      for (let i = 0; i < this.items.length; i++) {
+        console.log(`  ${this.items[i].name}`);
       }
     }
   }
 
   takeItem(itemName) {
-    this.items.push(itemName)
+    this.items.push(Item.itemName)
     Room.items.splice(Room.items.indexOf(itemName), 1)
   }
 
@@ -43,9 +43,11 @@ class Player {
   }
 
   eatItem(itemName) {
-    if (itemName instanceof Food) {
+    if (itemName === 'sandwich') {
       console.log(`You eat the ${itemName}. \n It slaps`);
       this.items.splice(this.items.indexOf(itemName), 1)
+    } else if (!(itemName instanceof Food)) {
+      console.log(`${itemName} is not edible dumbass`)
     }
   }
 
