@@ -38,7 +38,7 @@ class Player {
       this.currentRoom.items.splice(this.currentRoom.items.indexOf(itemName), 1)
       this.items.push(item)
     }
-    else console.log('This bitch empty\nkeep looking columbus')
+    else console.log('This bitch empty\nKeep looking columbus')
   }
 
   dropItem(itemName) {
