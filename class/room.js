@@ -1,3 +1,7 @@
+const { rooms } = require('../data/world-data');
+const {Item} = require('./item');
+const { Player } = require('./player');
+
 class Room {
   constructor(name, description) {
     this.name = name;
@@ -42,8 +46,9 @@ class Room {
   }
 
   getItemByName(name) {
-    // Retrieves an item from a room by item name
-    // Your code here 
+    if (room.items.length > 0) {
+      return room.items.split(' ')
+    }
   }
 }
 
